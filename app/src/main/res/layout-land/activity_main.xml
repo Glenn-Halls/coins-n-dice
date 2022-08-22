@@ -6,93 +6,139 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/button_two_up"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:padding="3dp"
+        android:paddingLeft="3dp"
+        android:paddingTop="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="3dp"
+        android:text="@string/two_up_button"
+        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_roll_dice"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_roll_dice"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:padding="3dp"
+        android:paddingLeft="3dp"
+        android:paddingTop="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="3dp"
+        android:text="@string/dice_roll_button"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/button_two_up"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_silver_coin"
-        app:layout_constraintEnd_toEndOf="@+id/button_silver_coin"
-        app:layout_constraintStart_toStartOf="@+id/button_silver_coin"
+        app:layout_constraintBottom_toTopOf="@+id/button_gold_coin"
+        app:layout_constraintEnd_toEndOf="@+id/button_gold_coin"
+        app:layout_constraintStart_toStartOf="@+id/button_gold_coin"
+        app:layout_constraintTop_toBottomOf="@+id/button_two_up"
         app:srcCompat="@drawable/gold_coin_n" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toTopOf="@+id/button_red_die"
         app:layout_constraintEnd_toEndOf="@+id/button_red_die"
         app:layout_constraintStart_toStartOf="@+id/button_red_die"
+        app:layout_constraintTop_toBottomOf="@+id/button_roll_dice"
         app:srcCompat="@drawable/die_red_0" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toTopOf="@+id/button_black_die"
         app:layout_constraintEnd_toEndOf="@+id/button_black_die"
         app:layout_constraintStart_toStartOf="@+id/button_black_die"
+        app:layout_constraintTop_toBottomOf="@+id/button_roll_dice"
         app:srcCompat="@drawable/die_black_0" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_gold_coin"
-        app:layout_constraintEnd_toEndOf="@+id/button_gold_coin"
-        app:layout_constraintStart_toStartOf="@+id/button_gold_coin"
+        app:layout_constraintBottom_toTopOf="@+id/button_silver_coin"
+        app:layout_constraintEnd_toEndOf="@+id/button_silver_coin"
+        app:layout_constraintStart_toStartOf="@+id/button_silver_coin"
+        app:layout_constraintTop_toBottomOf="@+id/button_two_up"
         app:srcCompat="@drawable/silver_coin_n" />
 
     <Button
         android:id="@+id/button_silver_coin"
         android:layout_width="120dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="40dp"
-        android:paddingLeft="9dp"
-        android:paddingRight="9dp"
+        android:padding="3dp"
+        android:paddingLeft="3dp"
+        android:paddingTop="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="3dp"
         android:text="@string/coin_2_button"
         android:textSize="14sp"
         app:iconPadding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_gold_coin" />
+        app:layout_constraintStart_toEndOf="@+id/button_gold_coin"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <Button
         android:id="@+id/button_black_die"
         android:layout_width="120dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="40dp"
+        android:padding="3dp"
+        android:paddingLeft="3dp"
+        android:paddingTop="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="3dp"
         android:text="@string/black_die_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_red_die"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/button_red_die"
         android:layout_width="120dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="40dp"
+        android:padding="3dp"
+        android:paddingLeft="3dp"
+        android:paddingTop="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="3dp"
         android:text="@string/red_die_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_gold_coin"
-        app:layout_constraintStart_toEndOf="@+id/button_black_die" />
+        app:layout_constraintStart_toEndOf="@+id/button_black_die"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/button_gold_coin"
         android:layout_width="120dp"
         android:layout_height="70dp"
-        android:layout_marginBottom="40dp"
-        android:paddingLeft="9dp"
-        android:paddingRight="9dp"
+        android:padding="3dp"
+        android:paddingLeft="3dp"
+        android:paddingTop="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="3dp"
         android:text="@string/coin_1_button"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_silver_coin"
         app:layout_constraintStart_toEndOf="@+id/button_red_die"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
