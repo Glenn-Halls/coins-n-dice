@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Coins-N-Dice</string>
+    <string name="black_die_button">Roll the black die!</string>
+    <string name="red_die_button">Roll the red die!</string>
+    <string name="coin_1_button">Toss the gold coin!</string>
+    <string name="coin_2_button">Toss the silver coin!</string>
 </resources>
