@@ -56,4 +56,45 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_gold_coin"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="@+id/button_gold_coin"
+        app:layout_constraintStart_toStartOf="@+id/button_gold_coin"
+        app:layout_constraintTop_toBottomOf="@+id/button_gold_coin"
+        app:srcCompat="@drawable/gold_coin_n" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="@+id/button_silver_coin"
+        app:layout_constraintStart_toStartOf="@+id/button_silver_coin"
+        app:layout_constraintTop_toBottomOf="@+id/button_silver_coin"
+        app:srcCompat="@drawable/silver_coin_n" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_black_die"
+        app:layout_constraintEnd_toEndOf="@+id/button_black_die"
+        app:layout_constraintStart_toStartOf="@+id/button_black_die"
+        app:srcCompat="@drawable/die_black_0" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_red_die"
+        app:layout_constraintEnd_toEndOf="@+id/button_red_die"
+        app:layout_constraintStart_toStartOf="@+id/button_red_die"
+        app:srcCompat="@drawable/die_red_0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
