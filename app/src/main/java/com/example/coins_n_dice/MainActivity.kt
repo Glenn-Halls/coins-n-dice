@@ -23,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         val silverCoinButton: Button = findViewById(R.id.button_silver_coin)
         silverCoinButton.setOnClickListener { catLog(silverCoinButton) }
 
+        val twoUpButton: Button = findViewById(R.id.button_two_up)
+        twoUpButton.setOnClickListener { catLog(twoUpButton) }
+
+        val rollDiceButton: Button = findViewById(R.id.button_roll_dice)
+        rollDiceButton.setOnClickListener { catLog(rollDiceButton) }
+
     }
 
     private fun catLog(value: Button) {

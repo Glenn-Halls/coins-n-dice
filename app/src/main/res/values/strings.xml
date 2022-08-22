@@ -4,4 +4,6 @@
     <string name="red_die_button">Roll the red die!</string>
     <string name="coin_1_button">Toss the gold coin!</string>
     <string name="coin_2_button">Toss the silver coin!</string>
+    <string name="two_up_button">Play Two-Up!</string>
+    <string name="dice_roll_button">Roll Both Dice!</string>
 </resources>
