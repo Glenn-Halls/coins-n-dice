@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
+import android.graphics.drawable.Drawable
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         // Set on click listeners for buttons
         val blackDieButton: Button = findViewById(R.id.button_black_die)
         blackDieButton.setOnClickListener { catLog(blackDieButton) }
-
 
         val redDieButton: Button = findViewById(R.id.button_red_die)
         redDieButton.setOnClickListener { catLog(redDieButton) }
@@ -67,51 +67,71 @@ class MainActivity : AppCompatActivity() {
             Log.d("init", "rolling a die, color is ${unit.dieColor}, value is ${unit.number}")
             
             // Updates drawable recource based on roll
-            val drawableResource = when (unit.number) {
-                1 -> R.drawable.die_black_1
-                2 -> R.drawable.die_black_2
-                3 -> R.drawable.die_black_3
-                4 -> R.drawable.die_black_4
-                5 -> R.drawable.die_black_5
-                6 -> R.drawable.die_black_6
-                else -> Log.e("ERROR", "roll is out of bounds")
+            var drawableResource: Int? = null
+            if (unit.dieColor == "black") {
+                drawableResource = when (unit.number) {
+                    1 -> R.drawable.die_black_1
+                    2 -> R.drawable.die_black_2
+                    3 -> R.drawable.die_black_3
+                    4 -> R.drawable.die_black_4
+                    5 -> R.drawable.die_black_5
+                    6 -> R.drawable.die_black_6
+                    else -> {R.drawable.coinsndicelogo
+                        Log.e("error", "die roll not in range")}
+                }
+            } else if (unit.dieColor == "red") {
+                drawableResource = when (unit.number) {
+                    1 -> R.drawable.die_red_1
+                    2 -> R.drawable.die_red_2
+                    3 -> R.drawable.die_red_3
+                    4 -> R.drawable.die_red_4
+                    5 -> R.drawable.die_red_5
+                    6 -> R.drawable.die_red_6
+                    else -> {R.drawable.coinsndicelogo
+                        Log.e("error", "die roll not in range")}
+                }
+            } else {
+                drawableResource = R.drawable.coinsndicelogo
+                Log.e("error", "die is not red or black")
             }
             
+
             // Update image to drawable resource
-            blackDieImage.setImageResource(drawableResource)
-            blackDieImage.contentDescription = unit.number.toString()
-
-            
-
-
+            if (unit.dieColor == "black") {
+                blackDieImage.setImageResource(drawableResource)
+                blackDieImage.contentDescription = unit.number.toString()
+            } else {
+                redDieImage.setImageResource(drawableResource)
+                redDieImage.contentDescription = unit.number.toString()
+            }
         }
 
         blackDieButton.setOnClickListener { rollDice(blackDie) }
-
+        redDieButton.setOnClickListener { rollDice(redDie) }
+        
     }
-
-    }
+}
 
     
 
-    // logging of button clicks
-    private fun catLog(value: Button) {
-        Log.d("init", "clicked on ${value.resources.getResourceName(value.id)}")
-    }
+// logging of button clicks
+private fun catLog(value: Button) {
+    Log.d("init", "clicked on ${value.resources.getResourceName(value.id)}")
+}
 
-    // Die class with initial value 0
-    class Die(val dieColor: String) {
-        var number = 0
-        fun roll() {
-            number = (1..6).random()
-        }
+// Die class with initial value 0
+class Die(val dieColor: String) {
+    var number = 0
+    fun roll() {
+        number = (1..6).random()
     }
-    
-    // Coin class with initial value "null"
-    class Coin(val coinColor: String) {
-        var side = "null"
-        val coinSides = listOf("heads", "tails")
-        fun flip() {
-            side = coinSides.random()
-        }
+}
+
+// Coin class with initial value "null"
+class Coin(val coinColor: String) {
+    var side = "null"
+    val coinSides = listOf("heads", "tails")
+    fun flip() {
+        side = coinSides.random()
     }
+}
