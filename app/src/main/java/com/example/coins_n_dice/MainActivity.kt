@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         val blackDieButton: Button = findViewById(R.id.button_black_die)
         blackDieButton.setOnClickListener { catLog(blackDieButton) }
 
+
         val redDieButton: Button = findViewById(R.id.button_red_die)
         redDieButton.setOnClickListener { catLog(redDieButton) }
 
@@ -30,45 +31,87 @@ class MainActivity : AppCompatActivity() {
         val rollDiceButton: Button = findViewById(R.id.button_roll_dice)
         rollDiceButton.setOnClickListener { catLog(rollDiceButton) }
 
+        // Create Dice and Coins
+        val redDie = Die("red")
+        val blackDie = Die("black")
+        val goldCoin = Coin("gold")
+        val silverCoin = Coin("silver")
+
         // Set coins and dice to value 0 and images to default
-        var redDieValue = 0
         val redDieImage : ImageView = findViewById(R.id.image_red_die)
         redDieImage.setImageResource(R.drawable.die_red_0)
 
-        var blackDieValue = 0
         val blackDieImage : ImageView = findViewById(R.id.image_black_die)
         blackDieImage.setImageResource(R.drawable.die_black_0)
 
-        var goldCoinValue = 0
         val goldCoinImage : ImageView = findViewById(R.id.image_gold_coin)
         goldCoinImage.setImageResource(R.drawable.gold_coin_n)
 
-        var silverCoinValue = 0
         val silverCoinImage : ImageView = findViewById(R.id.image_silver_coin)
         silverCoinImage.setImageResource(R.drawable.silver_coin_n)
         
+        Log.d("init", "initial number = ${blackDie.number}, blackDie = ${blackDie.roll()}, die color = ${blackDie.dieColor}")
+        blackDie.roll()
+        Log.d("init", "initial number = ${blackDie.number}, blackDie = ${blackDie.roll()}, die color = ${blackDie.dieColor}")
 
-        // Function to roll a die
-        fun rollDie(): Int {
-            return (1..6).random()
-        }
+        Log.d("init", "initial side = ${goldCoin.side}, goldCoin = ${goldCoin.flip()}, coin color = ${goldCoin.coinColor}")
+        blackDie.roll()
+        Log.d("init", "initial side = ${goldCoin.side}, goldCoin = ${goldCoin.flip()}, coin color = ${goldCoin.coinColor}")
+
         
-        // Function to toss a coin
-        fun tossCoin() : String {
-            val coinSide = listOf("heads", "tails")
-            return coinSide.random()
+        fun rollDice(unit : Die) {
+            
+            // Rolls the Die
+            Log.d("init", "rolling a die, color is ${unit.dieColor}, value is ${unit.number}")
+            unit.roll()
+            Log.d("init", "rolling a die, color is ${unit.dieColor}, value is ${unit.number}")
+            
+            // Updates drawable recource based on roll
+            val drawableResource = when (unit.number) {
+                1 -> R.drawable.die_black_1
+                2 -> R.drawable.die_black_2
+                3 -> R.drawable.die_black_3
+                4 -> R.drawable.die_black_4
+                5 -> R.drawable.die_black_5
+                6 -> R.drawable.die_black_6
+                else -> Log.e("ERROR", "roll is out of bounds")
+            }
+            
+            // Update image to drawable resource
+            blackDieImage.setImageResource(drawableResource)
+            blackDieImage.contentDescription = unit.number.toString()
+
+            
+
+
         }
 
-        // Function to roll the red die
-        fun rollRedDie() {
-
-        }
-
-
+        blackDieButton.setOnClickListener { rollDice(blackDie) }
 
     }
 
+    }
+
+    
+
+    // logging of button clicks
     private fun catLog(value: Button) {
         Log.d("init", "clicked on ${value.resources.getResourceName(value.id)}")
     }
-}
+
+    // Die class with initial value 0
+    class Die(val dieColor: String) {
+        var number = 0
+        fun roll() {
+            number = (1..6).random()
+        }
+    }
+    
+    // Coin class with initial value "null"
+    class Coin(val coinColor: String) {
+        var side = "null"
+        val coinSides = listOf("heads", "tails")
+        fun flip() {
+            side = coinSides.random()
+        }
+    }

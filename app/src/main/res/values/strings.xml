@@ -6,4 +6,10 @@
     <string name="coin_2_button">Toss the\nsilver coin!</string>
     <string name="two_up_button">Spin the Coins!</string>
     <string name="dice_roll_button">Roll Double Dice!</string>
+    <string name="One">One!\n Roll Again?</string>
+    <string name="Two">Two\n Roll Again?</string>
+    <string name="Three">Three\n Roll Again?</string>
+    <string name="Four">Four\n Roll Again?</string>
+    <string name="Five">Five\n Roll Again?</string>
+    <string name="Six">Six\n Roll Again?</string>
 </resources>
