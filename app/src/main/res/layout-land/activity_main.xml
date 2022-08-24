@@ -16,7 +16,7 @@
         android:paddingRight="3dp"
         android:paddingBottom="3dp"
         android:text="@string/two_up_button"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        app:layout_constraintBottom_toTopOf="@+id/image_silver_coin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_roll_dice"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,50 +31,50 @@
         android:paddingRight="3dp"
         android:paddingBottom="3dp"
         android:text="@string/dice_roll_button"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/image_red_die"
         app:layout_constraintEnd_toStartOf="@+id/button_two_up"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/image_gold_coin"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toTopOf="@+id/button_gold_coin"
         app:layout_constraintEnd_toEndOf="@+id/button_gold_coin"
         app:layout_constraintStart_toStartOf="@+id/button_gold_coin"
         app:layout_constraintTop_toBottomOf="@+id/button_two_up"
-        app:srcCompat="@drawable/gold_coin_n" />
+        tools:srcCompat="@drawable/gold_coin_n" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image_red_die"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toTopOf="@+id/button_red_die"
         app:layout_constraintEnd_toEndOf="@+id/button_red_die"
         app:layout_constraintStart_toStartOf="@+id/button_red_die"
         app:layout_constraintTop_toBottomOf="@+id/button_roll_dice"
-        app:srcCompat="@drawable/die_red_0" />
+        tools:srcCompat="@drawable/die_red_0" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/image_black_die"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toTopOf="@+id/button_black_die"
         app:layout_constraintEnd_toEndOf="@+id/button_black_die"
         app:layout_constraintStart_toStartOf="@+id/button_black_die"
         app:layout_constraintTop_toBottomOf="@+id/button_roll_dice"
-        app:srcCompat="@drawable/die_black_0" />
+        tools:srcCompat="@drawable/die_black_0" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/image_silver_coin"
         android:layout_width="120dp"
         android:layout_height="120dp"
         app:layout_constraintBottom_toTopOf="@+id/button_silver_coin"
         app:layout_constraintEnd_toEndOf="@+id/button_silver_coin"
         app:layout_constraintStart_toStartOf="@+id/button_silver_coin"
         app:layout_constraintTop_toBottomOf="@+id/button_two_up"
-        app:srcCompat="@drawable/silver_coin_n" />
+        tools:srcCompat="@drawable/silver_coin_n" />
 
     <Button
         android:id="@+id/button_silver_coin"
@@ -91,7 +91,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_gold_coin"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/image_gold_coin" />
 
     <Button
         android:id="@+id/button_black_die"
@@ -106,7 +106,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_red_die"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintTop_toBottomOf="@+id/image_black_die"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
@@ -122,7 +122,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_gold_coin"
         app:layout_constraintStart_toEndOf="@+id/button_black_die"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/image_red_die" />
 
     <Button
         android:id="@+id/button_gold_coin"
@@ -138,7 +138,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_silver_coin"
         app:layout_constraintStart_toEndOf="@+id/button_red_die"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintTop_toBottomOf="@+id/image_silver_coin"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

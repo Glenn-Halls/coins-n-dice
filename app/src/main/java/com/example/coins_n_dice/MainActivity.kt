@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,42 @@ class MainActivity : AppCompatActivity() {
 
         val rollDiceButton: Button = findViewById(R.id.button_roll_dice)
         rollDiceButton.setOnClickListener { catLog(rollDiceButton) }
+
+        // Set coins and dice to value 0 and images to default
+        var redDieValue = 0
+        val redDieImage : ImageView = findViewById(R.id.image_red_die)
+        redDieImage.setImageResource(R.drawable.die_red_0)
+
+        var blackDieValue = 0
+        val blackDieImage : ImageView = findViewById(R.id.image_black_die)
+        blackDieImage.setImageResource(R.drawable.die_black_0)
+
+        var goldCoinValue = 0
+        val goldCoinImage : ImageView = findViewById(R.id.image_gold_coin)
+        goldCoinImage.setImageResource(R.drawable.gold_coin_n)
+
+        var silverCoinValue = 0
+        val silverCoinImage : ImageView = findViewById(R.id.image_silver_coin)
+        silverCoinImage.setImageResource(R.drawable.silver_coin_n)
+        
+
+        // Function to roll a die
+        fun rollDie(): Int {
+            return (1..6).random()
+        }
+        
+        // Function to toss a coin
+        fun tossCoin() : String {
+            val coinSide = listOf("heads", "tails")
+            return coinSide.random()
+        }
+
+        // Function to roll the red die
+        fun rollRedDie() {
+
+        }
+
+
 
     }
 
