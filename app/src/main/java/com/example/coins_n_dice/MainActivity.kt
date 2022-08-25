@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
-import android.graphics.drawable.Drawable
 import android.view.HapticFeedbackConstants
 
 class MainActivity : AppCompatActivity() {
@@ -66,32 +65,36 @@ class MainActivity : AppCompatActivity() {
             unit.roll()
 
             // Updates drawable resource based on roll & die color
-            var drawableResource: Int? = null
-            if (unit.dieColor == "black") {
-                drawableResource = when (unit.number) {
-                    1 -> R.drawable.die_black_1
-                    2 -> R.drawable.die_black_2
-                    3 -> R.drawable.die_black_3
-                    4 -> R.drawable.die_black_4
-                    5 -> R.drawable.die_black_5
-                    6 -> R.drawable.die_black_6
-                    else -> {R.drawable.coinsndicelogo
-                        Log.e("error", "die roll not in range")}
+            val drawableResource: Int?
+            when (unit.dieColor) {
+                "black" -> {
+                    drawableResource = when (unit.number) {
+                        1 -> R.drawable.die_black_1
+                        2 -> R.drawable.die_black_2
+                        3 -> R.drawable.die_black_3
+                        4 -> R.drawable.die_black_4
+                        5 -> R.drawable.die_black_5
+                        6 -> R.drawable.die_black_6
+                        else -> {R.drawable.coinsndicelogo
+                            Log.e("error", "die roll not in range")}
+                    }
                 }
-            } else if (unit.dieColor == "red") {
-                drawableResource = when (unit.number) {
-                    1 -> R.drawable.die_red_1
-                    2 -> R.drawable.die_red_2
-                    3 -> R.drawable.die_red_3
-                    4 -> R.drawable.die_red_4
-                    5 -> R.drawable.die_red_5
-                    6 -> R.drawable.die_red_6
-                    else -> {R.drawable.coinsndicelogo
-                        Log.e("error", "die roll not in range")}
+                "red" -> {
+                    drawableResource = when (unit.number) {
+                        1 -> R.drawable.die_red_1
+                        2 -> R.drawable.die_red_2
+                        3 -> R.drawable.die_red_3
+                        4 -> R.drawable.die_red_4
+                        5 -> R.drawable.die_red_5
+                        6 -> R.drawable.die_red_6
+                        else -> {R.drawable.coinsndicelogo
+                            Log.e("error", "die roll not in range")}
+                    }
                 }
-            } else {
-                drawableResource = R.drawable.coinsndicelogo
-                Log.e("error", "die is not red or black")
+                else -> {
+                    drawableResource = R.drawable.coinsndicelogo
+                    Log.e("error", "die is not red or black")
+                }
             }
             
 
@@ -110,32 +113,44 @@ class MainActivity : AppCompatActivity() {
             unit.flip()
 
             // Updates drawable resource based on flip and coin color
-            var drawableResource: Int? = null
-            if (unit.coinColor == "silver") {
-                if (unit.side == "heads") {
-                    drawableResource = R.drawable.coin_silver_heads
-                } else if (unit.side == "tails") {
-                    drawableResource = R.drawable.coin_silver_tails
-                } else {
+            val drawableResource: Int?
+            when (unit.coinColor) {
+                "silver" -> {
+                    drawableResource = when (unit.side) {
+                        "heads" -> {
+                            R.drawable.coin_silver_heads
+                        }
+                        "tails" -> {
+                            R.drawable.coin_silver_tails
+                        }
+                        else -> {
+                            R.drawable.coinsndicelogo
+                        }
+                    }
+                }
+                "gold" -> {
+                    drawableResource = when (unit.side) {
+                        "heads" -> {
+                            R.drawable.coin_gold_heads
+                        }
+                        "tails" -> {
+                            R.drawable.coin_gold_tails
+                        }
+                        else -> {
+                            R.drawable.coinsndicelogo
+                        }
+                    }
+                }
+                else -> {
                     drawableResource = R.drawable.coinsndicelogo
                 }
-            } else if (unit.coinColor == "gold") {
-                if (unit.side == "heads") {
-                    drawableResource = R.drawable.coin_gold_heads
-                } else if (unit.side == "tails") {
-                    drawableResource = R.drawable.coin_gold_tails
-                } else {
-                    drawableResource = R.drawable.coinsndicelogo
-                }
-            } else {
-                drawableResource = R.drawable.coinsndicelogo
             }
 
             // Update image to drawable resource
             if (unit.coinColor == "silver") {
-                silverCoinImage.setImageResource(drawableResource!!)
+                silverCoinImage.setImageResource(drawableResource)
             } else {
-                goldCoinImage.setImageResource(drawableResource!!)
+                goldCoinImage.setImageResource(drawableResource)
             }
         }
 
@@ -197,7 +212,7 @@ class Die(val dieColor: String) {
 // Coin class with initial value "null"
 class Coin(val coinColor: String) {
     var side = "null"
-    val coinSides = listOf("heads", "tails")
+    private val coinSides = listOf("heads", "tails")
     fun flip() {
         side = coinSides.random()
     }
