@@ -10,6 +10,7 @@
         android:id="@+id/button_black_die"
         android:layout_width="120dp"
         android:layout_height="70dp"
+        android:hapticFeedbackEnabled="true"
         android:padding="3dp"
         android:paddingLeft="3dp"
         android:paddingTop="3dp"
@@ -17,16 +18,19 @@
         android:paddingBottom="3dp"
         android:text="@string/black_die_button"
         android:textSize="14sp"
+        app:guidelineUseRtl="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_red_die"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_black_die"
+        app:rippleColor="@color/white"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/button_red_die"
         android:layout_width="120dp"
         android:layout_height="70dp"
+        android:hapticFeedbackEnabled="true"
         android:padding="3dp"
         android:paddingLeft="3dp"
         android:paddingTop="3dp"
@@ -37,12 +41,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_black_die"
-        app:layout_constraintTop_toBottomOf="@+id/image_red_die" />
+        app:layout_constraintTop_toBottomOf="@+id/image_red_die"
+        app:rippleColor="@color/white" />
 
     <Button
         android:id="@+id/button_gold_coin"
         android:layout_width="120dp"
         android:layout_height="70dp"
+        android:hapticFeedbackEnabled="true"
         android:padding="3dp"
         android:paddingLeft="3dp"
         android:paddingTop="3dp"
@@ -54,12 +60,14 @@
         app:layout_constraintEnd_toStartOf="@+id/button_silver_coin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/white"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/button_silver_coin"
         android:layout_width="120dp"
         android:layout_height="70dp"
+        android:hapticFeedbackEnabled="true"
         android:padding="3dp"
         android:paddingLeft="3dp"
         android:paddingTop="3dp"
@@ -71,12 +79,14 @@
         app:layout_constraintBottom_toTopOf="@+id/image_silver_coin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_gold_coin"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/white" />
 
     <Button
         android:id="@+id/button_two_up"
         android:layout_width="300dp"
         android:layout_height="70dp"
+        android:hapticFeedbackEnabled="true"
         android:padding="3dp"
         android:paddingLeft="3dp"
         android:paddingTop="3dp"
@@ -86,12 +96,14 @@
         app:layout_constraintBottom_toTopOf="@+id/button_roll_dice"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_gold_coin" />
+        app:layout_constraintTop_toBottomOf="@+id/image_gold_coin"
+        app:rippleColor="@color/white" />
 
     <Button
         android:id="@+id/button_roll_dice"
         android:layout_width="300dp"
         android:layout_height="70dp"
+        android:hapticFeedbackEnabled="true"
         android:padding="3dp"
         android:paddingLeft="3dp"
         android:paddingTop="3dp"
@@ -101,7 +113,8 @@
         app:layout_constraintBottom_toTopOf="@+id/image_red_die"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_two_up" />
+        app:layout_constraintTop_toBottomOf="@+id/button_two_up"
+        app:rippleColor="@color/white" />
 
     <ImageView
         android:id="@+id/image_gold_coin"

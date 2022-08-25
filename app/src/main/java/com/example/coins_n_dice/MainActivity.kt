@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.graphics.drawable.Drawable
+import android.view.HapticFeedbackConstants
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             unit.roll()
             Log.d("init", "rolling a die, color is ${unit.dieColor}, value is ${unit.number}")
             
-            // Updates drawable recource based on roll
+            // Updates drawable resource based on roll & die color
             var drawableResource: Int? = null
             if (unit.dieColor == "black") {
                 drawableResource = when (unit.number) {
@@ -106,13 +107,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        blackDieButton.setOnClickListener { rollDice(blackDie) }
-        redDieButton.setOnClickListener { rollDice(redDie) }
-        
+        // Button click rolls the black die with haptic feedback
+        blackDieButton.setOnClickListener {
+            rollDice(blackDie)
+            blackDieButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+        }
+
+        // Button click rolls the red die with haptic feedback
+        redDieButton.setOnClickListener {
+            rollDice(redDie)
+            redDieButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+        }
+
+        // Button click rolls both dice  with haptic feedback
+        rollDiceButton.setOnClickListener {
+            rollDice(blackDie)
+            rollDice(redDie)
+            rollDiceButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+        }
     }
 }
 
-    
 
 // logging of button clicks
 private fun catLog(value: Button) {
