@@ -63,10 +63,8 @@ class MainActivity : AppCompatActivity() {
         fun rollDice(unit : Die) {
             
             // Rolls the Die
-            Log.d("init", "rolling a die, color is ${unit.dieColor}, value is ${unit.number}")
             unit.roll()
-            Log.d("init", "rolling a die, color is ${unit.dieColor}, value is ${unit.number}")
-            
+
             // Updates drawable resource based on roll & die color
             var drawableResource: Int? = null
             if (unit.dieColor == "black") {
@@ -106,6 +104,7 @@ class MainActivity : AppCompatActivity() {
                 redDieImage.contentDescription = unit.number.toString()
             }
         }
+
 
         // Button click rolls the black die with haptic feedback
         blackDieButton.setOnClickListener {
