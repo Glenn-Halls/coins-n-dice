@@ -105,6 +105,40 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        fun flipCoins(unit : Coin) {
+            // Flips the coin
+            unit.flip()
+
+            // Updates drawable resource based on flip and coin color
+            var drawableResource: Int? = null
+            if (unit.coinColor == "silver") {
+                if (unit.side == "heads") {
+                    drawableResource = R.drawable.coin_silver_heads
+                } else if (unit.side == "tails") {
+                    drawableResource = R.drawable.coin_silver_tails
+                } else {
+                    drawableResource = R.drawable.coinsndicelogo
+                }
+            } else if (unit.coinColor == "gold") {
+                if (unit.side == "heads") {
+                    drawableResource = R.drawable.coin_gold_heads
+                } else if (unit.side == "tails") {
+                    drawableResource = R.drawable.coin_gold_tails
+                } else {
+                    drawableResource = R.drawable.coinsndicelogo
+                }
+            } else {
+                drawableResource = R.drawable.coinsndicelogo
+            }
+
+            // Update image to drawable resource
+            if (unit.coinColor == "silver") {
+                silverCoinImage.setImageResource(drawableResource!!)
+            } else {
+                goldCoinImage.setImageResource(drawableResource!!)
+            }
+        }
+
 
         // Button click rolls the black die with haptic feedback
         blackDieButton.setOnClickListener {
@@ -123,6 +157,25 @@ class MainActivity : AppCompatActivity() {
             rollDice(blackDie)
             rollDice(redDie)
             rollDiceButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+        }
+
+        // Button click flips the silver coin with haptic feedback
+        silverCoinButton.setOnClickListener {
+            flipCoins(silverCoin)
+            silverCoinButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+        }
+
+        // Button click flips the gold coin with haptic feedback
+        goldCoinButton.setOnClickListener {
+            flipCoins(goldCoin)
+            goldCoinButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
+        }
+
+        // Button click flips both coins with haptic feedback
+        twoUpButton.setOnClickListener {
+            flipCoins(silverCoin)
+            flipCoins(goldCoin)
+            twoUpButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
         }
     }
 }
