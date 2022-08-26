@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
                 12 -> R.string.Twelve
                 else -> R.string.dice_roll_button
                 })
-                rollDiceButton.setTextSize(30F)
+                rollDiceButton.textSize = 30F
             }
 
             //  Increase Text Size
@@ -169,6 +169,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        fun twoUp() {
+            when (goldCoin.value + silverCoin.value) {
+                2 -> {twoUpButton.setText(R.string.Heads)}
+                3 -> {twoUpButton.setText(R.string.Both)}
+                4 -> {twoUpButton.setText(R.string.Tails)}
+                else -> {twoUpButton.setText(R.string.two_up_button)}
+            }
+            twoUpButton.textSize = 30F
+        }
+
+        fun singleCoin() {
+            twoUpButton.setText(R.string.two_up_button)
+            twoUpButton.textSize = 14.5F
+        }
+
 
         // Button click rolls the black die with haptic feedback
         blackDieButton.setOnClickListener {
@@ -192,12 +207,14 @@ class MainActivity : AppCompatActivity() {
         // Button click flips the silver coin with haptic feedback
         silverCoinButton.setOnClickListener {
             flipCoins(silverCoin)
+            singleCoin()
             silverCoinButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
         }
 
         // Button click flips the gold coin with haptic feedback
         goldCoinButton.setOnClickListener {
             flipCoins(goldCoin)
+            singleCoin()
             goldCoinButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
         }
 
@@ -205,9 +222,10 @@ class MainActivity : AppCompatActivity() {
         twoUpButton.setOnClickListener {
             flipCoins(silverCoin)
             flipCoins(goldCoin)
+            twoUp()
             twoUpButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
         }
-        Log.d("init", "test initialised ${redDie.number} and ${blackDie.number}")
+        Log.d("init", "test initialised ${twoUpButton.textSize}")
 
     }
 }
