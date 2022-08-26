@@ -251,10 +251,10 @@ class Coin(val coinColor: String) {
     private val coinSides = listOf("heads", "tails")
     fun flip() {
         side = coinSides.random()
-        if (side == "heads") {
-            value = 1
+        value = if (side == "heads") {
+            1
         } else {
-            value = 2
+            2
         }
     }
 }
