@@ -49,16 +49,8 @@ class MainActivity : AppCompatActivity() {
 
         val silverCoinImage : ImageView = findViewById(R.id.image_silver_coin)
         silverCoinImage.setImageResource(R.drawable.silver_coin_n)
-        
-        Log.d("init", "initial number = ${blackDie.number}, blackDie = ${blackDie.roll()}, die color = ${blackDie.dieColor}")
-        blackDie.roll()
-        Log.d("init", "initial number = ${blackDie.number}, blackDie = ${blackDie.roll()}, die color = ${blackDie.dieColor}")
 
-        Log.d("init", "initial side = ${goldCoin.side}, goldCoin = ${goldCoin.flip()}, coin color = ${goldCoin.coinColor}")
-        blackDie.roll()
-        Log.d("init", "initial side = ${goldCoin.side}, goldCoin = ${goldCoin.flip()}, coin color = ${goldCoin.coinColor}")
-
-        
+        // Function to roll the red / black die
         fun rollDice(unit : Die) {
             
             // Rolls the Die
@@ -106,6 +98,29 @@ class MainActivity : AppCompatActivity() {
                 redDieImage.setImageResource(drawableResource)
                 redDieImage.contentDescription = unit.number.toString()
             }
+
+            // Update the centre text to combined value if both dice ar rolled
+            if ((blackDie.number == 0) or (redDie.number == 0)) {
+                rollDiceButton.setText(R.string.dice_roll_button)
+            } else { rollDiceButton.setText(when (redDie.number + blackDie.number) {
+                2 -> R.string.Two
+                3 -> R.string.Three
+                4 -> R.string.Four
+                5 -> R.string.Five
+                6 -> R.string.Six
+                7 -> R.string.Seven
+                8 -> R.string.Eight
+                9 -> R.string.Nine
+                10 -> R.string.Ten
+                11 -> R.string.Eleven
+                12 -> R.string.Twelve
+                else -> R.string.dice_roll_button
+                })
+                rollDiceButton.setTextSize(30F)
+            }
+
+            //  Increase Text Size
+
         }
 
         fun flipCoins(unit : Coin) {
@@ -192,6 +207,8 @@ class MainActivity : AppCompatActivity() {
             flipCoins(goldCoin)
             twoUpButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY)
         }
+        Log.d("init", "test initialised ${redDie.number} and ${blackDie.number}")
+
     }
 }
 
@@ -212,8 +229,14 @@ class Die(val dieColor: String) {
 // Coin class with initial value "null"
 class Coin(val coinColor: String) {
     var side = "null"
+    var value = 0
     private val coinSides = listOf("heads", "tails")
     fun flip() {
         side = coinSides.random()
+        if (side == "heads") {
+            value = 1
+        } else {
+            value = 2
+        }
     }
 }
